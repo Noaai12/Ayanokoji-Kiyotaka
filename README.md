@@ -1,11 +1,10 @@
-![alya](https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/alya-kujou/alya-pp.png) 
+![ayanokoji](https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/#pp.png) 
 
-<h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ✧</h1>
+<h1 align="center">𝗔𝘆𝗮𝗻𝗼𝗸𝗼𝗷𝗶 𝗞𝗶𝘆𝗼𝘁𝗮𝗸𝗮 🜲</h1>
 
-> Personal Chatbot messenger by hady zen and saveng fox <br>
 > Yang mau di joki uptime hubungi kontak dibawah <br>
 
-## 𝗔𝗗𝗠𝗜𝗡 ✧
+## 𝗔𝗗𝗠𝗜𝗡 🜲
 
 • Nama: Hadi pranata <br>
 • Facebook: https://facebook.com/hadi.zen.in <br>
@@ -18,7 +17,7 @@
 081262260170
 ```
 
-## INSTALL ✧
+## INSTALL 🜲
 
 • unduh kiwi browser di play store <br>
 • buka url dibawah ini di kiwi browser <br>
@@ -28,11 +27,11 @@ https://glitch.com
 • masuk ke akun glitch mu atau buat <br>
 • buat project baru dan masukkan url ini <br>
 ```fork
-https://github.com/HadyZen/Alya-Kujou.git
+https://github.com/HadyZen/Ayanokoji.git
 ```
 • unduh cookie editor dibawah ini <br> 
 ```cookie
-[nanti](https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/alya-kujou/alya-cookie.zip
+https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/#cookie.zip
 ```
 • masukkan file cookie editor ke kiwi extension <br>
 • buka url dibawah ini di kiwi browser <br>
@@ -44,7 +43,7 @@ https://www.facebook.com
 • pilih cookie editor lalu klik <br>
 • klik export atau tanda keluar, pilih format json <br>
 • buka file akun.txt di project mu lalu ganti isinya <br>
-• setel alya.json sebagaimana yang kamu mau <br>
+• setel kiyotaka.json sebagaimana yang kamu mau <br>
 • buka terminal lalu ketik kode ini <br> 
 ```kode
 npm start
