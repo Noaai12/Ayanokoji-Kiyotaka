@@ -1,4 +1,4 @@
-/* HADY ZEN'IN X KIYOTAKA */
+/* HADY ZEN'IN */
 
  const express = require('express');
  const app = express();
@@ -11,7 +11,7 @@
  const { version } = require('./package.json');
  const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey } = require('./kiyotaka');
  const { kuldown } = require('./hady-zen/kuldown');
- const { getData, setData, addData } = require('./database/alyaData.js');
+ const { getData, setData, addData } = require('./database/ayanokoji-db.js');
 
 async function notiferr(notif) { 
   try { 
