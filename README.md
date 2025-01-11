@@ -1,4 +1,4 @@
-![ayanokoji](https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/#ayanokoji.png) 
+![ayanokoji](https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/%23kiyotaka.png) 
 
 <h1 align="center">𝗔𝘆𝗮𝗻𝗼𝗸𝗼𝗷𝗶 𝗞𝗶𝘆𝗼𝘁𝗮𝗸𝗮 🜲</h1>
 
@@ -27,11 +27,11 @@ https://glitch.com
 • masuk ke akun glitch mu atau buat <br>
 • buat project baru dan masukkan url ini <br>
 ```fork
-https://github.com/HadyZen/Ayanokoji.git
+https://github.com/HadyZen/Ayanokoji-Kiyotaka.git
 ```
 • unduh cookie editor dibawah ini <br> 
 ```cookie
-https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/#cookie.zip
+https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/%23cookie.zip
 ```
 • masukkan file cookie editor ke kiwi extension <br>
 • buka url dibawah ini di kiwi browser <br>
