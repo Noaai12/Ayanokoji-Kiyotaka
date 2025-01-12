@@ -112,7 +112,6 @@ if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || ha
  });
 });
 
-app.use(express.json());
 app.listen(port, () => { });
 app.get('/', (req, res) => { 
  res.sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#ayanokoji.html'));
@@ -121,22 +120,22 @@ app.get('/ayanokoji', async (req, res) => {
   const text = req.query.pesan || 'hai';
 
   try {
-  const data = {
-     contents: [{ parts: [{ ayanokoji: text }] }]
-};
+    const data = {
+      contents: [{ parts: [{ ayanokoji: text }] }]
+    };
 
-  const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAXBvwNkZBckC8b3vTZVVuwRwlsPttTgkA`, data, {
+    const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAXBvwNkZBckC8b3vTZVVuwRwlsPttTgkA`, data, {
       headers: {
-      'Content-Type': 'application/json'
-}
-});
-  const answer = response.data.candidates[0].content.parts[0].ayanokoji;
-     res.json({ answer });
+        'Content-Type': 'application/json'
+      }
+    });
 
-} catch (error) {
-     res.status(500).json({ error: 'Maaf ada kesalahan, saat ini saya tidak dapat membantu.' });
-     res.status(404).json({ error: 'Maaf terjadi kesalahan.'});
-}
+    const answer = response.data.candidates[0].content.parts[0].ayanokoji;
+    res.json({ answer });
+
+  } catch (error) {
+    res.status(500).json({ error: 'Maaf ada kesalahan: ' + error.message });
+  }
 });
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#kiyotaka.html'));
