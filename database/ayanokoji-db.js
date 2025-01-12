@@ -84,7 +84,6 @@ function addData(id, nama, yen) {
             });
         })
         .catch((err) => {
-            // Jika file db.json tidak ada, buat file baru dengan data baru
             const db = { [id]: { nama, yen } };
             return new Promise((resolve, reject) => {
                 fs.writeFile(dbPath, JSON.stringify(db, null, 2), (err) => {
