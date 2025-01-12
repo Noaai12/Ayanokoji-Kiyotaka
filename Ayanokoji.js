@@ -121,7 +121,7 @@ app.get('/ayanokoji', async (req, res) => {
 
   try {
     const data = {
-      contents: [{ parts: [{ ayanokoji: text }] }]
+      contents: [{ parts: [{ text: text }] }]
     };
 
     const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAXBvwNkZBckC8b3vTZVVuwRwlsPttTgkA`, data, {
@@ -130,8 +130,8 @@ app.get('/ayanokoji', async (req, res) => {
       }
     });
 
-    const answer = response.data.candidates[0].content.parts[0].ayanokoji;
-    res.json({ answer });
+    const ayanokoji = response.data.candidates[0].content.parts[0].text;
+    res.json({ pembuat: "Hady Zen", ayanokoji });
 
   } catch (error) {
     res.status(500).json({ error: 'Maaf ada kesalahan: ' + error.message });
