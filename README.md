@@ -2,7 +2,7 @@
 
 <h1 align="center">𝗔𝘆𝗮𝗻𝗼𝗸𝗼𝗷𝗶 𝗞𝗶𝘆𝗼𝘁𝗮𝗸𝗮 🜲</h1>
 
-> Yang mau di joki uptime hubungi kontak dibawah <br>
+> Semua manusia hanyalah alat <br>
 
 ## 𝗔𝗗𝗠𝗜𝗡 🜲
 
