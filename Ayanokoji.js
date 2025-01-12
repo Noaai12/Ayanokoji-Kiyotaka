@@ -9,7 +9,7 @@
  const axios = require('axios');
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { version } = require('./package.json');
- const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey } = require('./kiyotaka');
+ const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey, aikey } = require('./kiyotaka');
  const { kuldown } = require('./hady-zen/kuldown');
  const { getData, setData, addData } = require('./database/ayanokoji-db.js');
 
@@ -29,13 +29,12 @@ async function getStream(hadi, isekai) {
   const wibu = path.join(__dirname, 'hady-zen', isekai);
     fs.writeFileSync(wibu, otaku);
       return wibu;
-      
   } catch (error) {
     throw error;
  }
 };
 
-global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo };
+global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
 
 console.log(global.Ayanokoji.logo.ayanokoji);
 console.log(ayanokoji('versi') + `${version}.`);
@@ -124,18 +123,15 @@ app.get('/ayanokoji', async (req, res) => {
     const data = {
       contents: [{ parts: [{ text: text }] }]
     };
-
-    const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAXBvwNkZBckC8b3vTZVVuwRwlsPttTgkA`, data, {
+    const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${aikey}`, data, {
       headers: {
         'Content-Type': 'application/json'
       }
     });
-
     const ayanokoji = response.data.candidates[0].content.parts[0].text;
     res.json({ pembuat: "Hady Zen", ayanokoji });
-
   } catch (error) {
-    res.status(500).json({ error: 'Maaf ada kesalahan: ' + error.message });
+    res.json({ error: 'Maaf ada kesalahan: ' + error.message });
   }
 });
 app.use((req, res, next) => {
