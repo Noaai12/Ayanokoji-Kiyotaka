@@ -116,9 +116,6 @@ app.listen(port, () => { });
 app.get('/', (req, res) => { 
  res.sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#ayanokoji.html'));
 });
-app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#kiyotaka.html'));
-});
 app.get('/ayanokoji', async (req, res) => {
   const text = req.query.pesan || 'hai';
 
@@ -139,6 +136,9 @@ app.get('/ayanokoji', async (req, res) => {
      res.status(500).json({ error: 'Maaf ada kesalahan, saat ini saya tidak dapat membantu.' });
      res.status(404).json({ error: 'Maaf terjadi kesalahan.'});
 }
+});
+app.use((req, res, next) => {
+  res.status(404).sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#kiyotaka.html'));
 });
 
 process.on('unhandledRejection', (reason) => {
