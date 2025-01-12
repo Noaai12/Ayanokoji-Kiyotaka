@@ -16,7 +16,7 @@ bahasa: {
 Ayanokoji: async function ({ api, event, args, bhs }) { 
   const text = args.join(' ');
   if (!text) return api.sendMessage(bhs('hadi'), event.threadID, event.messageID);
-  const aya = await axios.get(`https://harmless-chisel-toothbrush.glitch.me/ayanokoji?ayanokoji=${encodeURIComponent(text)}`);
+  const aya = await axios.get(`https://harmless-chisel-toothbrush.glitch.me/ayanokoji?pesan=${encodeURIComponent(text)}`);
     api.sendMessage(aya.data.ayanokoji, event.threadID, event.messageID);
  }
 };
