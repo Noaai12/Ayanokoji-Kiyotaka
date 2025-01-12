@@ -31,13 +31,13 @@ Ayanokoji: async function ({ api, event, getStream }) {
      const nino = Date.now();
      const raffa = nino - chika;
 
-     const hadi = `[ ${ping(raffa)} | ${raffa} ] • SISTEM ✧\n`
+     const hadi = `[ ${ping(raffa)} | ${raffa} ] • SISTEM 🜲\n`
                  + `\n- Uptime: ${arif}`
                  + `\n- Ram: ${riley}`
                  + `\n- Disk: ${edi}`
                  + `\n- Cpu: ${rizky} (${os.cpus().length} cores)`;
 
-api.sendMessage({ body: hadi, attachment: fs.createReadStream(await getStream('', 'sistem.png') }, event.threadID, event.messageID);
+api.sendMessage({ body: hadi, attachment: fs.createReadStream(await getStream('https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/%23ayanokoji.png', 'sistem.png') }, event.threadID, event.messageID);
 
 async function getDiskUsage() {
   const { stdout } = await exec('df -k /');
