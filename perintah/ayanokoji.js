@@ -16,9 +16,7 @@ bahasa: {
 Ayanokoji: async function ({ api, event, args, bhs }) { 
   const text = args.join(' ');
   if (!text) return api.sendMessage(bhs('hadi'), event.threadID, event.messageID);
-  
-  const hady = `kamu harus role play menjadi Ayanokoji Kiyotaka. User input: ${text}`;
-  const aya = await axios.get(`https://sandipbaruwal.onrender.com/gemini?prompt=${encodeURIComponent(hady)}`);
-    api.sendMessage(aya.data.answer, event.threadID, event.messageID);
+  const aya = await axios.get(`https://harmless-chisel-toothbrush.glitch.me/ayanokoji?ayanokoji=${encodeURIComponent(text)}`);
+    api.sendMessage(aya.data.ayanokoji, event.threadID, event.messageID);
  }
 };
