@@ -117,9 +117,10 @@ app.get('/', (req, res) => {
  res.sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#ayanokoji.html'));
 });
 app.get('/ayanokoji', async (req, res) => {
-  const text = req.query.pesan || 'hai';
+  const role = req.query.pesan || 'hai';
 
   try {
+   const text = `kamu harus role play menjadi Ayanokoji Kiyotaka. User input: ${encodeURIComponent(role)}`;
     const data = {
       contents: [{ parts: [{ text: text }] }]
     };
