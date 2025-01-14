@@ -1,5 +1,6 @@
 const fs = require('fs');
-const noah = fs.readFileSync(JSON.parse('kiyotaka.json', 'utf8'));
+const noah = JSON.parse(fs.readFileSync('kiyotaka.json', 'utf8'));
+
 module.exports = {
   hady: {
     nama: "admin",
@@ -22,7 +23,7 @@ module.exports = {
           in: "You are using it wrong, use list, add, del." }
   }, 
     
-  Ayanokoji: async function({ api, event, args, bhs, loadC  }) {
+  Ayanokoji: async function({ api, event, args, bhs, loadC }) {
     switch (args[0]) {
       case 'list':
         api.sendMessage(noah.admin.join('\n'), event.threadID, event.messageID);
