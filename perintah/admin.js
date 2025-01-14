@@ -22,7 +22,7 @@ module.exports = {
           in: "You are using it wrong, use list, add, del." }
   }, 
     
-  Ayanokoji: async function({ api, event, args, bhs }) {
+  Ayanokoji: async function({ api, event, args, bhs, loadC  }) {
     switch (args[0]) {
       case 'list':
         api.sendMessage(noah.admin.join('\n'), event.threadID, event.messageID);
@@ -32,6 +32,7 @@ module.exports = {
         noah.admin.push(args[1]);
         fs.writeFileSync('kiyotaka.json', JSON.stringify(noah, null, 2));
         api.sendMessage(bhs('aya'), event.threadID, event.messageID);
+        await loadC();
         break;
       case 'del':
         if (args.length < 2) return api.sendMessage(bhs('hadi'), event.threadID, event.messageID);
@@ -40,6 +41,7 @@ module.exports = {
           noah.admin.splice(index, 1);
           fs.writeFileSync('kiyotaka.json', JSON.stringify(noah, null, 2));
           api.sendMessage(bhs('nokoji'), event.threadID, event.messageID);
+          await loadC();
         } else {
           api.sendMessage(bhs('zen'), event.threadID, event.messageID);
         }
