@@ -1,5 +1,5 @@
 const fs = require('fs');
-const noah = global.Ayanokoji.admin;
+const noah = fs.readFileSync(JSON.parse('kiyotaka.json', 'utf8'));
 module.exports = {
   hady: {
     nama: "admin",
