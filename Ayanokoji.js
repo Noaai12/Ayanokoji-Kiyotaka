@@ -19,7 +19,7 @@ async function notiferr(notif) {
   } catch (futaro) {
    console.log(logo.error + 'Terjadi kesalahan pada notif error: ' + futaro);
   }
-}; 
+};
 
 async function getStream(hadi, isekai) {
     try {
@@ -33,9 +33,10 @@ async function getStream(hadi, isekai) {
  }
 };
 
-global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
+global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey, konfig: fs.readJsonSync('/kiyotaka.json') };
 
 console.log(global.Ayanokoji.logo.ayanokoji);
+setInterval(function() { global.Ayanokoji.konfig; }, 10000); 
 console.log(ayanokoji('versi') + `${version}.`);
 console.log(ayanokoji('awalan') + `${awalan}`);
 console.log(ayanokoji('bahasa') + `${nakano}.`);
