@@ -72,7 +72,7 @@ if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.senderID}
        for (const file of files) {
    if (file.endsWith('.js')) {
     const anime = path.join(path.join(__dirname, '/perintah'), file);
-    const { hady, Ayanokoji, Kiyotaka, bahasa } = require(anime);
+    const { hady, Ayanokoji, bahasa } = require(anime);
 
    if (hady && hady.nama === cmd && typeof Ayanokoji === 'function') {
   console.log(logo.cmds + `Menjalankan perintah ${hady.nama}.`);
@@ -81,14 +81,14 @@ if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.senderID}
    if (kuldown(event.senderID, hady.nama, hady.kuldown) == 'hadi') { 
 	   
 if (hady.peran == 0 || !hady.peran) {
-    await Ayanokoji({ api, event, args, bhs, getData, getStream });
+    await Ayanokoji({ api, event, args, bhs, getStream });
     return;
 }
 if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || hady.peran == 0) {
-    await Ayanokoji({ api, event, args, bhs, getData, getStream });
+    await Ayanokoji({ api, event, args, bhs, getStream });
     return;
 } else if (hady.peran == 1 && fitri.join(', ').includes(event.senderID) || hady.peran == 0) {
-    await Ayanokoji({ api, event, args, bhs, getData, getStream });
+    await Ayanokoji({ api, event, args, bhs, getStream });
     return;
 } else { 
     api.setMessageReaction("❗", event.messageID);
