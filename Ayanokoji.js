@@ -2,16 +2,15 @@
 
  const express = require('express');
  const app = express();
- const login = require("./hady-zen/ayanokoji");
- const { logo, warna, font, ayanokoji } = require("./hady-zen/log.js");
- const fs = require("fs");
- const path = require("path");
+ const login = require('./hady-zen/ayanokoji');
+ const { logo, warna, font, ayanokoji } = require('./hady-zen/log');
+ const fs = require('fs');
+ const path = require('path');
  const axios = require('axios');
  const akun = fs.readFileSync('akun.txt', 'utf8');
- const { version } = require('./package.json');
+ const { version } = require('./package');
  const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey, aikey } = require('./kiyotaka');
  const { kuldown } = require('./hady-zen/kuldown');
- const { getData, setData, addData } = require('./database/ayanokoji-db.js');
 
 async function notiferr(notif) { 
   try { 
@@ -58,8 +57,7 @@ login({appState: JSON.parse(akun, zen)}, (err, api) => {
    api.listenMqtt((err, event) => {
    const body = event.body;
 if (!body || maintain == true && !admin.includes(event.senderID) || chatdm == false && event.isGroup == false && !admin.includes(event.senderID)) return; 
-     addData(event.senderID, 'Unknown', 0);
-if (body.toLowerCase() == "prefix") return api.sendMessage(`🜲 Awalan ${nama}: ${awalan}`, event.threadID, event.messageID);
+if (body.toLowerCase() == "prefix") return api.sendMessage(`⚡ Awalan ${nama}: ${awalan}`, event.threadID, event.messageID);
 if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.senderID} > ${body}`);
    const cmd = body.slice(awalan.length).trim().split(/ +/g).shift().toLowerCase();
 	   
@@ -116,10 +114,9 @@ app.get('/', (req, res) => {
  res.sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#ayanokoji.html'));
 });
 app.get('/ayanokoji', async (req, res) => {
-  const role = req.query.pesan || 'hai';
+  const text = req.query.pesan || 'hai';
 
   try {
-   const text = `kamu harus role play menjadi Ayanokoji Kiyotaka. User input: ${encodeURIComponent(role)}`;
     const data = {
       contents: [{ parts: [{ text: text }] }]
     };
