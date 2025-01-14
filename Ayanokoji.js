@@ -40,7 +40,7 @@ async function loadC() {
 global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
 
 console.log(global.Ayanokoji.logo.ayanokoji);
-setInterval(function() { await loadC(); }, 60000); 
+setInterval(function() { loadC(); }, 60000); 
 console.log(ayanokoji('versi') + `${version}.`);
 console.log(ayanokoji('awalan') + `${awalan}`);
 console.log(ayanokoji('bahasa') + `${nakano}.`);
