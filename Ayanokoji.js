@@ -33,10 +33,14 @@ async function getStream(hadi, isekai) {
  }
 };
 
-global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey, konfig: fs.readJsonSync('/kiyotaka.json') };
+async function loadC() {
+  fs.readFileSync('kiyotaka.json')
+};
+
+global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
 
 console.log(global.Ayanokoji.logo.ayanokoji);
-setInterval(function() { global.Ayanokoji.konfig; }, 10000); 
+setInterval(function() { await loadC(); }, 60000); 
 console.log(ayanokoji('versi') + `${version}.`);
 console.log(ayanokoji('awalan') + `${awalan}`);
 console.log(ayanokoji('bahasa') + `${nakano}.`);
@@ -82,14 +86,14 @@ if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.senderID}
    if (kuldown(event.senderID, hady.nama, hady.kuldown) == 'hadi') { 
 	   
 if (hady.peran == 0 || !hady.peran) {
-    await Ayanokoji({ api, event, args, bhs, getStream });
+    await Ayanokoji({ api, event, args, bhs, getStream, loadC });
     return;
 }
 if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || hady.peran == 0) {
-    await Ayanokoji({ api, event, args, bhs, getStream });
+    await Ayanokoji({ api, event, args, bhs, getStream, loadC });
     return;
 } else if (hady.peran == 1 && fitri.join(', ').includes(event.senderID) || hady.peran == 0) {
-    await Ayanokoji({ api, event, args, bhs, getStream });
+    await Ayanokoji({ api, event, args, bhs, getStream, loadC });
     return;
 } else { 
     api.setMessageReaction("❗", event.messageID);
