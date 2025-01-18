@@ -41,11 +41,11 @@ module.exports = {
         let areaKey, dataWeather, areaName;
 
         try {
-            const response = (await axios.get(`https://api.accuweather.com/locations/v1/cities/search.json?q=${encodeURIComponent(area)}&apikey=d7e795ae6a0d44aaa8abb1a0a7ac19e4&language=id-in`)).data;
+            const response = (await axios.get(`https://api.accuweather.com/locations/v1/cities/search.json?q=${encodeURIComponent(area)}&apikey=d7e795ae6a0d44aaa8abb1a0a7ac19e4&language=id`)).data;
             if (response.length == 0)
                 return api.sendMessage(bhs("hady") + area, event.threadID, event.messageID);
             const data = response[0];
-            areaKey = data.key;
+            areaKey = data.Key;
             areaName = data.LocalizedName;
         } catch (err) {
             return api.sendMessage(bhs("error") + err.response.data.Message, event.threadID, event.messageID);
@@ -59,7 +59,7 @@ module.exports = {
 
         const dataWeatherDaily = dataWeather.DailyForecasts;
         const dataWeatherToday = dataWeatherDaily[0];
-        const msg = `Cuaca sekarang di ${areaName}\n${dataWeather.Headline.Text}\nSuhu rendah - tinggi: ${convertFtoC(dataWeatherToday.Temperature.Minimum.Value)} - ${convertFtoC(dataWeatherToday.Temperature.Maximum.Value)}\nTerasa seperti: ${convertFtoC(dataWeatherToday.RealFeelTemperature.Minimum.Value)} - ${convertFtoC(dataWeatherToday.RealFeelTemperature.Maximum.Value)}\nMatahari terbit: ${formatHours(dataWeatherToday.Sun.Rise)}\nMatahari terbenam: ${formatHours(dataWeatherToday.Sun.Set)}\nBulan terbit: ${formatHours(dataWeatherToday.Moon.Rise)}\nBulan terbenam: ${formatHours(dataWeatherToday.Moon.Set)}\nHari: ${dataWeatherToday.Day.LongPhrase}\nMalam: ${dataWeatherToday.Night.LongPhrase}`;
+        const msg = `Cuaca sekarang di ${areaName}\n${dataWeather.Headline.Text}\n\nSuhu rendah - tinggi: ${convertFtoC(dataWeatherToday.Temperature.Minimum.Value)} - ${convertFtoC(dataWeatherToday.Temperature.Maximum.Value)}\nTerasa seperti: ${convertFtoC(dataWeatherToday.RealFeelTemperature.Minimum.Value)} - ${convertFtoC(dataWeatherToday.RealFeelTemperature.Maximum.Value)}\nMatahari terbit: ${formatHours(dataWeatherToday.Sun.Rise)}\nMatahari terbenam: ${formatHours(dataWeatherToday.Sun.Set)}\nBulan terbit: ${formatHours(dataWeatherToday.Moon.Rise)}\nBulan terbenam: ${formatHours(dataWeatherToday.Moon.Set)}\nHari: ${dataWeatherToday.Day.LongPhrase}\nMalam: ${dataWeatherToday.Night.LongPhrase}`;
 
         const bg = await Canvas.loadImage("https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/hadi.png");
         const { width, height } = bg;
@@ -87,12 +87,12 @@ module.exports = {
             X += 135;
         }
 
-        const pathSaveImg = `/hady-zen/cuaca.png`;
+        const pathSaveImg = `hady-zen/cuaca.png`;
         fs.writeFileSync(pathSaveImg, canvas.toBuffer());
 
         return api.sendMessage({
             body: msg,
             attachment: fs.createReadStream(pathSaveImg)
-        }, event.threadID, event.messageID, () => fs.unlinkSync(pathSaveImg));
+        }, event.threadID, event.messageID);
     }
 };
