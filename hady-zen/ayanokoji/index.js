@@ -438,7 +438,7 @@ function loginHelper(appState, email, password, globalOptions, callback, prCallb
       return callback(null, api);
     })
     .catch(function (e) {
-      console.log(logo.error + e.error || e);
+      console.log(global.Ayanokoji.logo.error + e.error || e);
       callback(e);
     });
 }
