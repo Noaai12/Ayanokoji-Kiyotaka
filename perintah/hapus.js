@@ -8,6 +8,6 @@ module.exports = {
   }, 
   
   Ayanokoji: async function ({ api, event }) {
-    api.deleteMessage(event.messageReply.messageID);
+    api.unsendMessage(event.messageReply.messageID);
   }
 };
