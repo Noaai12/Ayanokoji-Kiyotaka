@@ -59,7 +59,7 @@ module.exports = {
 
         const dataWeatherDaily = dataWeather.DailyForecasts;
         const dataWeatherToday = dataWeatherDaily[0];
-        const msg = `Lokasi: ${areaName}\ndataWeather.Headline.Text, convertFtoC(dataWeatherToday.Temperature.Minimum.Value), convertFtoC(dataWeatherToday.Temperature.Maximum.Value), convertFtoC(dataWeatherToday.RealFeelTemperature.Minimum.Value), convertFtoC(dataWeatherToday.RealFeelTemperature.Maximum.Value), formatHours(dataWeatherToday.Sun.Rise), formatHours(dataWeatherToday.Sun.Set), formatHours(dataWeatherToday.Moon.Rise), formatHours(dataWeatherToday.Moon.Set), dataWeatherToday.Day.LongPhrase, dataWeatherToday.Night.LongPhrase)`;
+        const msg = `Cuaca sekarang di ${areaName}\n${dataWeather.Headline.Text}\nSuhu rendah - tinggi: ${convertFtoC(dataWeatherToday.Temperature.Minimum.Value)} - ${convertFtoC(dataWeatherToday.Temperature.Maximum.Value)}\nTerasa seperti: ${convertFtoC(dataWeatherToday.RealFeelTemperature.Minimum.Value)} - ${convertFtoC(dataWeatherToday.RealFeelTemperature.Maximum.Value)}\nMatahari terbit: ${formatHours(dataWeatherToday.Sun.Rise)}\nMatahari terbenam: ${formatHours(dataWeatherToday.Sun.Set)}\nBulan terbit: ${formatHours(dataWeatherToday.Moon.Rise)}\nBulan terbenam: ${formatHours(dataWeatherToday.Moon.Set)}\nHari: ${dataWeatherToday.Day.LongPhrase}\nMalam: ${dataWeatherToday.Night.LongPhrase}`;
 
         const bg = await Canvas.loadImage("https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/hadi.png");
         const { width, height } = bg;
