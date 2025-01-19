@@ -58,7 +58,8 @@ login({appState: JSON.parse(akun, zen)}, (err, api) => {
   notiferr(`Terjadi kesalahan saat login: ${err.message}`);
    }
 
-   api.setOptions({listenEvents: true});  
+   api.setOptions({listenEvents: true}); 
+        try { 
    api.listenMqtt((err, event) => {
    const body = event.body;
 if (!body || maintain == true && !admin.includes(event.senderID) || chatdm == false && event.isGroup == false && !admin.includes(event.senderID)) return; 
@@ -112,6 +113,10 @@ if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || ha
 }
  hady_cmd(cmd, api, event);
  });
+} catch (gusida) { 
+  notiferr(gusida.message);
+  console.log(logo.error + gusida.message); 
+}
 });
 
 app.listen(port, () => { });
