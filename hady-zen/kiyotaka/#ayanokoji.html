@@ -35,7 +35,7 @@
       background-color: black;
     }
     .hady {
-      padding: 10px 50px;
+      padding: 10px 60px;
       font-size: 30px;
       background-color: #242424;
       color: white;
@@ -141,7 +141,7 @@
       </div>
       <div id="story" class="zen">
         <div id="tabel">
-          <video controls loop style="display: block; margin: 0 auto; width: 90%; height: auto;">
+          <video controls style="display: block; margin: 0 auto; width: 90%; height: auto;">
             <source src="https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/hady-zen/kiyotaka/%23status.mp4">
           </video>
         </div>
@@ -162,15 +162,13 @@
       showContent('home');
 
       let wle = Date.now();
-
-
       buttons.forEach(button => {
         button.addEventListener('click', () => {
           buttons.forEach(btn => btn.classList.remove('active'));
           button.classList.add('active');
         });
       });
-
+      
       function salinWeb() {
         const tempInput = document.createElement('input');
         tempInput.value = window.location.href;
@@ -180,7 +178,6 @@
         document.execCommand('copy');
         document.body.removeChild(tempInput);
       }
-
       function salin(text) {
         navigator.clipboard.writeText(text)
         .then(() => {
