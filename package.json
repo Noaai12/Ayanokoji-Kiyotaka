@@ -30,7 +30,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "node index.js", 
-    "udt": "node update.js"
+    "dev": "node index.js"
   }
 }
