@@ -6,7 +6,7 @@ const path = require('path');
 const { custom, logo } = require('./hady-zen/log');
 
 async function ayanokoji(hady) {
-  const { data } = await axios.get(`https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/${hady}`);
+  const { data } = await axios.get(`https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/${hady}`, { responseType: 'arraybuffer' });
 
   fs.writeFile(path.join(__dirname, hady), data, 'utf8', (err) => {
     if (err) {
@@ -39,7 +39,7 @@ async function kiyotaka() {
     }
 
     files.forEach((file) => {
-      if (file !== 'kiyotaka.json' && file !== 'akun.txt') {
+      if (file !== 'kiyotaka.json' && file !== 'akun.txt' && file !== '.env' && file !== 'package-lock.json') {
         fs.stat(path.join(__dirname, file), (err, stats) => {
           if (err) {
             console.log(logo.error + `Gagal memeriksa status file ${file}: ${err}`);
