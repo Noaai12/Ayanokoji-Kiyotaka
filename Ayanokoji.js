@@ -113,7 +113,6 @@ if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || ha
  hady_cmd(cmd, api, event);
  });
 } catch (gusida) { 
-  notiferr(gusida.message);
   console.log(logo.error + gusida.message); 
 }
 });
