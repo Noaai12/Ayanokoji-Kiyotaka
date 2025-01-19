@@ -12,6 +12,10 @@
  const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey, aikey } = require('./kiyotaka');
  const { kuldown } = require('./hady-zen/kuldown');
 
+process.on('unhandledRejection', error => console.log());
+process.on('uncaughtException', error => console.log(error));
+global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
+
 async function notiferr(notif) { 
   try { 
  const oreki = `⚡ 𝗔𝗱𝗮 𝗘𝗿𝗿𝗼𝗿\n\n𝖯𝗋𝗈𝗃𝖾𝗄: ${nama}\n𝖤𝗋𝗋𝗈𝗋: ${notif}`;
@@ -34,8 +38,6 @@ async function getStream(hadi, isekai) {
 async function loadC() {
   fs.readFileSync('kiyotaka.json')
 };
-
-global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
 
 console.log(global.Ayanokoji.logo.ayanokoji);
 setInterval(function() { loadC(); }, 60000); 
@@ -141,11 +143,4 @@ app.get('/ayanokoji', async (req, res) => {
 });
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, 'hady-zen', 'kiyotaka', '#kiyotaka.html'));
-});
-
-process.on('unhandledRejection', (reason) => {
-	console.log(logo.error + reason.message);
-});
-process.on('uncaughtException', (err) => {
-	console.log(logo.error + err.message);
 });
