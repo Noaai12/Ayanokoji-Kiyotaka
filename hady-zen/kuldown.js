@@ -1,7 +1,6 @@
 /* HADY ZEN'IN */
 
 let hadi = {};
-
 function kuldown(id, cmd, cd) {
     if (jeda(id, cmd, cd)) {
         if (!hadi[id]) {
@@ -19,7 +18,6 @@ function jeda(id, cmd, cd) {
         return true;
     }
     const timePassed = (Date.now() - hadi[id][cmd]) / 1000; 
-
     return timePassed >= cd;
 }
 
