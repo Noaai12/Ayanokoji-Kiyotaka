@@ -23,7 +23,8 @@ const logo = {
   cmds: `${warna.hitam}${waktu}${warna.reset} ${warna.magenta}${font.bold}🜲 CMDS: ${warna.reset}`, 
   pesan: `${warna.hitam}${waktu}${warna.reset} ${warna.biru}${font.bold}🜲 PESAN: ${warna.reset}`, 
   update: `${warna.hitam}${waktu}${warna.reset} ${warna.kuning}${font.bold}🜲 UPDATE: ${warna.reset}`, 
-  ayanokoji: `${warna.biru}▄▀█ █▄█ ▄▀█ █▄ █ █▀█ █▄▀ █▀█  █ █\n█▀█  █  █▀█ █ ▀█ █▄█ █ █ █▄█ ▄█ █\n${font.bold}${warna.merah}           Kiyotaka 🜲 ${warna.reset}\n`
+  ayanokoji: `▄▀█ █▄█ ▄▀█ █▄ █ █▀█ █▄▀ █▀█  █ █
+█▀█  █  █▀█ █ ▀█ █▄█ █ █ █▄█ ▄█ █`
 };
 function ayanokoji(nama) {
   return `${warna.hitam}${waktu}${warna.reset} ${warna.biru}${font.bold}🜲 ${nama.toUpperCase()}: ${warna.reset}`;
