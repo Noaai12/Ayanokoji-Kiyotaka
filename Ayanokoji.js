@@ -9,11 +9,12 @@
  const axios = require('axios');
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { version } = require('./package');
- const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey, aikey } = require('./kiyotaka');
+ const gradient = requrie('gradient-string');
+ const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey, aikey, setting } = require('./kiyotaka');
  const { kuldown } = require('./hady-zen/kuldown');
 
-process.on('unhandledRejection', error => console.log());
-process.on('uncaughtException', error => console.log(error));
+process.on('unhandledRejection', error => console.log(logo.error + error));
+process.on('uncaughtException', error => console.log(logo.error + error));
 global.Ayanokoji = { awalan: awalan, nama: nama, admin: admin, logo: logo, aikey: aikey };
 
 async function notiferr(notif) { 
@@ -39,7 +40,8 @@ async function loadC() {
   fs.readFileSync('kiyotaka.json')
 };
 
-console.log(global.Ayanokoji.logo.ayanokoji);
+const kiyopon = gradient("#FA8BFF", "#2BD2FF", "#2BFF88")(logo.ayanokoji);
+console.log(kiyopon);
 setInterval(function() { loadC(); }, 60000); 
 console.log(ayanokoji('versi') + `${version}.`);
 console.log(ayanokoji('awalan') + `${awalan}`);
@@ -52,14 +54,13 @@ console.log(ayanokoji('perintah') + `${shadow}.`);
 
 if (!akun || akun.length < 0 || !JSON.parse(akun)) return console.log(logo.error + 'Kamu belum memasukkan cookie.');
 const zen = { host: proxy, port: port };
-login({appState: JSON.parse(akun, zen)}, (err, api) => {
+login({appState: JSON.parse(akun, zen)}, setting, (err, api) => {
    if (err) { 
-  console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
+  console.log(logo.error + `Terjadi kesalahan saat login: ${err.message || err.error}`);
   notiferr(`Terjadi kesalahan saat login: ${err.message}`);
   process.exit();
    }
-        try { 
-   api.setOptions({listenEvents: true}); 	
+      
    api.listenMqtt((err, event) => {
    const body = event.body;
 if (!body || maintain == true && !admin.includes(event.senderID) || chatdm == false && event.isGroup == false && !admin.includes(event.senderID)) return; 
@@ -72,6 +73,14 @@ if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.senderID}
     const args = pipi?.split(' ');
 
 	 try {
+async function getNama(kiyo) {
+ try {
+const user = await axios.post(`https://www.facebook.com/api/graphql/?q=${`node(${kiyo}){name}`}`);
+ return user.data[userID].name;
+ } catch (error) {
+ return null;
+ }
+}	 
     const skibidi = await new Promise((resolve, reject) => { api.getThreadInfo(event.threadID, (err, info) => { if (err) reject(err); else resolve(info); }); });
     const fitri = skibidi.adminIDs.map(admin => admin.id);
     const files = fs.readdirSync(path.join(__dirname, '/perintah'));
@@ -113,10 +122,6 @@ if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || ha
 }
  hady_cmd(cmd, api, event);
  });
-} catch (gusida) { 
-  console.log(logo.error + gusida.message); 
-  process.exit();
-}
 });
 
 app.listen(port, () => { });
