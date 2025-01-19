@@ -10,14 +10,14 @@
   "maintain": false,
   "admin": ["100088085177610"], 
   "setting": {
-		"forceLogin": true,
-		"listenEvents": true,
-		"updatePresence": true,
-		"listenTyping": true,
-		"logLevel": "error",
-		"selfListen": false,
-		"selfListenEvent": true,
-		"autoMarkDelivery": false,
-		"autoReconnect": false
-	}
+   "forceLogin": true,
+   "listenEvents": true,
+   "updatePresence": true,
+   "listenTyping": true,
+   "logLevel": "error",
+   "selfListen": false,
+   "selfListenEvent": true,
+   "autoMarkDelivery": false,
+   "autoReconnect": false
+ }
 }
