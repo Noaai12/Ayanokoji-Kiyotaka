@@ -1,4 +1,4 @@
-/* HADY ZEN'IN X KIYOTAKA */
+/* HADY ZEN'IN */
 
 const { waktu } = require("./waktu");
 const font = {
