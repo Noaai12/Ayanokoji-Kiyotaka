@@ -1,23 +1,22 @@
 const fs = require('fs');
 const path = require('path');
-const { custom, logo } = require('./hady-zen/log');
+const { logo } = require('./hady-zen/log');
 
 function ayanokoji(hady) {
   fs.readFile(hady, 'utf8', (err, data) => {
     if (err) {
       return;
     }
-    const updatedData = data;
 
-    fs.writeFile(hady, updatedData, 'utf8', (err) => {
+    fs.writeFile(hady, data, 'utf8', (err) => {
       if (err) {
-        console.log(logo.error + `Gagal memperbarui file ${hady}`);
+        console.log(logo.error + `Gagal memperbarui file ${hady}.`);
       } else {
-        console.log(custom('update') `File ${filePath} telah diperbarui.`);
+        console.log(logo.update + `Berhasil memperbarui file ${hady}.`);
       }
     });
   });
-}
+};
 
 function getVersionFromPackageJson() {
   try {
