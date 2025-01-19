@@ -9,7 +9,7 @@
  const axios = require('axios');
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { version } = require('./package');
- const gradient = requrie('gradient-string');
+ const gradient = require('gradient-string');
  const { awalan, nama, admin, proxy, port, bahasa: nakano, maintain, chatdm, notifkey, aikey, setting } = require('./kiyotaka');
  const { kuldown } = require('./hady-zen/kuldown');
 
