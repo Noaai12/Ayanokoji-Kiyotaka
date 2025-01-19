@@ -1,6 +1,13 @@
 /* HADY ZEN'IN */
 
-const axios = require('axios');
-const { data } = axios.get("https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/perbarui.js", { responseType: 'arraybuffer' });
+const { spawn } = require('child_process');
 
-eval(data);
+function hady() {
+  const child = spawn("node perbarui.js", {
+    cwd: __dirname,
+    stdio: "inherit",
+    shell: true
+ });
+};
+
+hady();
