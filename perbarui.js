@@ -14,7 +14,6 @@ async function ayanokoji(hady) {
       } else {
         console.log(logo.update + `Berhasil memperbarui file ${hady}.`);
       }
-    });
   });
 };
 
