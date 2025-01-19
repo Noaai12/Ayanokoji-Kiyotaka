@@ -21,6 +21,6 @@ bahasa: {
  }
 const rand = Math.floor(Math.random() * itsuki.length);
 const pilihan = font.bold(itsuki[rand]);
-api.sendMessage(`Aku lebih memilih ${pilihan}`, event.threadID, event.messageID);
+api.sendMessage(`Saya lebih memilih ${pilihan}`, event.threadID, event.messageID);
  }
 };
