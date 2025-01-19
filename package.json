@@ -31,6 +31,6 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js", 
-    "upt": "node update.js"
+    "udt": "node update.js"
   }
 }
