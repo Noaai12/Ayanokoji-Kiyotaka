@@ -1,3 +1,5 @@
+/* HADY ZEN'IN */
+
 "use strict";
 
 let request = promisifyPromise(require("request").defaults({ jar: true, proxy: process.env.FB_PROXY }));
@@ -36,7 +38,6 @@ function isHasCallback(func) {
 	return func.toString().split("\n")[0].match(/(callback|cb)\s*\)/) !== null;
 }
 
-// replace for bluebird.promisify (but this only applies best to the `request` package)
 function promisifyPromise(promise) {
 	const keys = Object.keys(promise);
 	let promise_;
