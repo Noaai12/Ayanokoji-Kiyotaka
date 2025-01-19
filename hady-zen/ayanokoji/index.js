@@ -1,3 +1,5 @@
+/* HADY ZEN'IN */
+
 "use strict";
 
 const utils = require("./utils");
