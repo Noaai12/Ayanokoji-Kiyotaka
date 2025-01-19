@@ -57,9 +57,8 @@ login({appState: JSON.parse(akun, zen)}, (err, api) => {
   console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
   notiferr(`Terjadi kesalahan saat login: ${err.message}`);
    }
-
-   api.setOptions({listenEvents: true}); 
         try { 
+   api.setOptions({listenEvents: true}); 	
    api.listenMqtt((err, event) => {
    const body = event.body;
 if (!body || maintain == true && !admin.includes(event.senderID) || chatdm == false && event.isGroup == false && !admin.includes(event.senderID)) return; 
