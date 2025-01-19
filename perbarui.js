@@ -5,9 +5,28 @@ const fs = require('fs');
 const path = require('path');
 const { custom, logo } = require('./hady-zen/log');
 
-async function ayanokoji(hady) {
-  const { data } = await axios.get(`https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/${hady}`, { responseType: 'arraybuffer' });
+async function kei(hady) {
+  try {
+    const response = await axios.get(`https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/${hady}`);
+    if (response.status === 200) {
+      console.log(logo.update + `File ${hady} ditemukan di repositori.`);
+      return true; 
+    }
+  } catch (error) {
+    if (error.response && error.response.status === 404) {
+      console.log(logo.error + `File ${hady} tidak ditemukan di repositori.`);
+    } else {
+      console.log(logo.error + `Terjadi kesalahan saat memeriksa file ${hady}: ${error.message}`);
+    }
+    return false; 
+  }
+}
 
+async function ayanokoji(hady) {
+  const hadi = await kei(hady);
+  if (!hadi) return;
+  
+  const { data } = await axios.get(`https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/${hady}`, { responseType: 'arraybuffer' });
   fs.writeFile(path.join(__dirname, hady), data, 'utf8', (err) => {
     if (err) {
       console.log(logo.error + `Gagal memperbarui file ${hady}.`);
