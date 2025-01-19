@@ -20,7 +20,6 @@ async function notiferr(notif) {
    console.log(logo.error + 'Terjadi kesalahan pada notif error: ' + futaro);
   }
 };
-
 async function getStream(hadi, isekai) {
     try {
   const kiyotaka = await axios.get(hadi, { responseType: 'arraybuffer' });
@@ -32,7 +31,6 @@ async function getStream(hadi, isekai) {
     throw error;
  }
 };
-
 async function loadC() {
   fs.readFileSync('kiyotaka.json')
 };
@@ -56,6 +54,7 @@ login({appState: JSON.parse(akun, zen)}, (err, api) => {
    if (err) { 
   console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
   notiferr(`Terjadi kesalahan saat login: ${err.message}`);
+  process.exit();
    }
         try { 
    api.setOptions({listenEvents: true}); 	
@@ -114,6 +113,7 @@ if ((hady.peran == 2 || hady.peran == 1) && admin.includes(event.senderID) || ha
  });
 } catch (gusida) { 
   console.log(logo.error + gusida.message); 
+  process.exit();
 }
 });
 
