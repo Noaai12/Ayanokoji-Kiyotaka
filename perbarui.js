@@ -9,12 +9,11 @@ async function kei(hady) {
   try {
     const response = await axios.get(`https://raw.githubusercontent.com/HadyZen/Ayanokoji-Kiyotaka/refs/heads/main/${hady}`);
     if (response.status === 200) {
-      console.log(logo.update + `File ${hady} ditemukan di repositori.`);
-      return true; 
+      return true;
     }
   } catch (error) {
     if (error.response && error.response.status === 404) {
-      console.log(logo.error + `File ${hady} tidak ditemukan di repositori.`);
+      console.log(logo.error + `File ${hady} bukan file dari ayanokoji.`);
     } else {
       console.log(logo.error + `Terjadi kesalahan saat memeriksa file ${hady}: ${error.message}`);
     }
@@ -58,7 +57,7 @@ async function kiyotaka() {
     }
 
     files.forEach((file) => {
-      if (file !== 'kiyotaka.json' && file !== 'akun.txt' && file !== '.env' && file !== 'package-lock.json') {
+      if (file !== 'kiyotaka.json' && file !== 'akun.txt') {
         fs.stat(path.join(__dirname, file), (err, stats) => {
           if (err) {
             console.log(logo.error + `Gagal memeriksa status file ${file}: ${err}`);
@@ -71,6 +70,6 @@ async function kiyotaka() {
       }
     });
   });
-}
+};
 
 kiyotaka();
