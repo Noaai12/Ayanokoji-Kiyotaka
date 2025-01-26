@@ -1,14 +1,14 @@
 {
-  "nama": "Ayanokoji Kiyotaka",
-  "awalan": "+",
+  "nama": "",
+  "awalan": ".",
   "port": 8080,
   "proxy": "103.179.217.242",
   "bahasa": "id",
   "notifkey": "wvvrFvLUkKuF8DEG",
   "aikey": "AIzaSyAXBvwNkZBckC8b3vTZVVuwRwlsPttTgkA", 
-  "chatdm": false,
-  "maintain": false,
-  "admin": ["100088085177610"], 
+  "chatdm": true,
+  "maintain": true,
+  "admin": ["100062186575693"], 
   "setting": {
    "forceLogin": true,
    "listenEvents": true,
@@ -18,6 +18,6 @@
    "selfListen": false,
    "selfListenEvent": true,
    "autoMarkDelivery": false,
-   "autoReconnect": false
+   "autoReconnect": true
  }
 }
